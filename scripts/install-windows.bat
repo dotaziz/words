@@ -21,7 +21,7 @@ if not exist "%INSTALL_DIR%\database" mkdir "%INSTALL_DIR%\database"
 
 REM Download database
 echo Downloading database (68MB)...
-set DB_URL=https://github.com/aziz/words_db/releases/download/v1/dict_en_v2.db
+set DB_URL=https://github.com/dotaziz/words_db/releases/download/v1/dict_en_v2.db
 powershell -Command "Invoke-WebRequest -Uri '%DB_URL%' -OutFile '%INSTALL_DIR%\database\dict_en_v2.db'"
 
 REM Install npm dependencies for sqlite
