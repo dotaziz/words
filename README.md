@@ -1,51 +1,68 @@
 # Words
 
-An offline desktop dictionary with hotkey to lookup words.
+A lightweight offline desktop dictionary built with [Neutralinojs](https://neutralino.js.org).
+
+![App Size](https://img.shields.io/badge/size-~5MB-brightgreen)
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-blue)
 
 ## Features
 
-- Hotkey lookup: search for meaning of a word in any window. Select word, then use the keyboard combination.
-- Dictionary: Select which dictionary to use. generic dictionary or wikitionary
-- Add and bookmark words: You can add new words and their definitions.
-
-## Prerequisites
-
-- Node.js (v16 or higher)
-- yarn
+- 📖 **Offline dictionary** with 67MB English word database
+- 🔍 **Instant lookup** - type and press Enter
+- 🗣️ **Text-to-speech** pronunciation
+- 📜 **Search history** tracking
+- 🖥️ **System tray** - minimizes to tray, runs in background
 
 ## Installation
-
-1. Clone the repository:
 
 ```bash
 git clone https://github.com/dotaziz/words.git
 cd words
+
+# Install SQLite extension dependencies
+cd extensions/sqlite && npm install && cd ../..
 ```
 
-2. Install dependencies:
+## Usage
+
+### Run the app
+```bash
+npm run dev
+```
+
+### Build for release
+```bash
+npm run build
+```
+
+## Hotkey Lookup (Linux)
+
+For system-wide word lookup (like the original Electron version):
 
 ```bash
-yarn install
+# Copy the helper script
+cp scripts/words-lookup.sh ~/.local/bin/
+chmod +x ~/.local/bin/words-lookup.sh
+
+# Add keyboard shortcut in your desktop settings
+# Bind Ctrl+Shift+W → ~/.local/bin/words-lookup.sh
 ```
 
-## Running Locally
+**How it works:** Select text → Press hotkey → See definition in notification
 
-1. Start the development server:
+**Requires:** `xclip`, `jq`, `notify-send`
 
-```bash
-npm run start
+## Project Structure
+
 ```
-
-This will:
-
-- Start the Vite development server
-- Launch the Electron application
-- Enable hot-reloading for development
-
-## Contributing
-
-If you would like to contribute to this repository, please fork the repository and create a pull request with your changes.
+words/
+├── resources/           # Frontend (HTML, CSS, JS)
+├── extensions/sqlite/   # Database query script
+├── database/            # Dictionary database (67MB)
+├── bin/                 # Neutralino binaries
+└── scripts/             # Helper scripts
+```
 
 ## License
 
-This project is licensed under the MIT License.
+MIT
