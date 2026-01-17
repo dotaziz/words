@@ -37,7 +37,7 @@ chmod +x "$INSTALL_DIR/words"
 mkdir -p "$INSTALL_DIR/database"
 
 # Download database
-DB_URL="https://github.com/dotaziz/words_db/releases/download/v1/dict_en_v2.db"
+DB_URL="https://github.com/dotaziz/words/releases/download/words/dict_en_v2.db"
 echo "Downloading dictionary database (68MB)..."
 if command -v curl >/dev/null 2>&1; then
   curl -L -o "$INSTALL_DIR/database/dict_en_v2.db" "$DB_URL"
