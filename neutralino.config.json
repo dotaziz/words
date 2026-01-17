@@ -29,8 +29,8 @@
   "modes": {
     "window": {
       "title": "Words Dictionary",
-      "width": 400,
-      "height": 500,
+      "width": 350,
+      "height": 450,
       "resizable": false,
       "maximize": false,
       "icon": "/resources/assets/icons/icon.png",
