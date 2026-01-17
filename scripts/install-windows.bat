@@ -12,9 +12,17 @@ if not exist "%INSTALL_DIR%" mkdir "%INSTALL_DIR%"
 
 REM Copy files
 xcopy /E /I /Y resources "%INSTALL_DIR%\resources"
-xcopy /E /I /Y database "%INSTALL_DIR%\database"
+REM xcopy /E /I /Y database "%INSTALL_DIR%\database"
 xcopy /E /I /Y extensions "%INSTALL_DIR%\extensions"
-copy /Y bin\neutralino-win_x64.exe "%INSTALL_DIR%\Words.exe"
+copy /Y Words.exe "%INSTALL_DIR%\Words.exe" 2>nul || copy /Y bin\neutralino-win_x64.exe "%INSTALL_DIR%\Words.exe" 2>nul || copy /Y neutralino-win_x64.exe "%INSTALL_DIR%\Words.exe"
+
+REM Create database directory
+if not exist "%INSTALL_DIR%\database" mkdir "%INSTALL_DIR%\database"
+
+REM Download database
+echo Downloading database (68MB)...
+set DB_URL=https://github.com/aziz/words_db/releases/download/v1/dict_en_v2.db
+powershell -Command "Invoke-WebRequest -Uri '%DB_URL%' -OutFile '%INSTALL_DIR%\database\dict_en_v2.db'"
 
 REM Install npm dependencies for sqlite
 cd /d "%INSTALL_DIR%\extensions\sqlite"

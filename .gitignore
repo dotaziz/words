@@ -13,7 +13,9 @@ release/
 
 # Storage (development)
 .storage/
+database/*.db
 
 
 # OS files
-.DS_Storerelease/
+.DS_Store
+release/

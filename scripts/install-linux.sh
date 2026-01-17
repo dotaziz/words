@@ -27,12 +27,26 @@ case $ARCH in
   *) echo "Unsupported architecture: $ARCH"; exit 1 ;;
 esac
 
-# Copy files
 cp -r resources "$INSTALL_DIR/"
-cp -r database "$INSTALL_DIR/"
+# cp -r database "$INSTALL_DIR/" # Don't bundle database
 cp -r extensions "$INSTALL_DIR/"
 cp "bin/$BINARY" "$INSTALL_DIR/words"
 chmod +x "$INSTALL_DIR/words"
+
+# Create database directory
+mkdir -p "$INSTALL_DIR/database"
+
+# Download database
+DB_URL="https://github.com/aziz/words_db/releases/download/v1/dict_en_v2.db" # PLACEHOLDER
+echo "Downloading dictionary database (68MB)..."
+if command -v curl >/dev/null 2>&1; then
+  curl -L -o "$INSTALL_DIR/database/dict_en_v2.db" "$DB_URL"
+elif command -v wget >/dev/null 2>&1; then
+  wget -O "$INSTALL_DIR/database/dict_en_v2.db" "$DB_URL"
+else
+  echo "Error: curl or wget is required to download the database."
+  exit 1
+fi
 
 # Install node_modules for sqlite extension
 cd "$INSTALL_DIR/extensions/sqlite"

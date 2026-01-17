@@ -7,11 +7,14 @@ A lightweight offline desktop dictionary built with [Neutralinojs](https://neutr
 
 ## Features
 
-- 📖 **Offline dictionary** with 67MB English word database
-- 🔍 **Instant lookup** - type and press Enter
-- 🗣️ **Text-to-speech** pronunciation
-- 📜 **Search history** tracking
-- 🖥️ **System tray** - minimizes to tray, runs in background
+- **Offline dictionary** with 67MB English word database
+- **Instant lookup** - type and press Enter
+- **Text-to-speech** pronunciation
+- **Search history** tracking
+- **System tray** - minimizes to tray, runs in background
+- **Online Dictionary & Wikipedia** integration
+
+> **Note:** Installation requires an internet connection to download the 68MB dictionary database. Once installed, the primary dictionary works perfectly offline.
 
 ## Installation
 
