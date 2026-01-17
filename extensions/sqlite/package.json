@@ -1,0 +1,13 @@
+{
+    "name": "neutralino-sqlite-extension",
+    "version": "1.0.0",
+    "description": "SQLite extension for Words Dictionary",
+    "main": "main.js",
+    "scripts": {
+        "start": "node main.js"
+    },
+    "dependencies": {
+        "better-sqlite3": "^11.0.0",
+        "ws": "^8.18.0"
+    }
+}
