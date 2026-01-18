@@ -38,22 +38,43 @@ npm run dev
 npm run build
 ```
 
-## Hotkey Lookup (Linux)
+## Global Hotkey Lookup
 
-For system-wide word lookup (like the original Electron version):
+Look up selected text from anywhere on your system with a keyboard shortcut:
 
+### Setup (Linux)
+
+1. **Copy the lookup script:**
+   ```bash
+   cp scripts/words-lookup.sh ~/.local/bin/
+   chmod +x ~/.local/bin/words-lookup.sh
+   ```
+
+2. **Set up a keyboard shortcut:**
+   - **GNOME:** Settings → Keyboard → Keyboard Shortcuts → Custom Shortcuts
+   - **KDE:** System Settings → Shortcuts → Custom Shortcuts
+   - **Command:** `~/.local/bin/words-lookup.sh`
+   - **Recommended key:** Super+W or Alt+W
+
+### Usage
+
+1. Select any text in any application
+2. Press your configured hotkey
+3. The Words app opens automatically with the definition
+
+**Dependencies:** `xclip` (required), `wmctrl` or `xdotool` (optional, for window focusing)
+
+Install dependencies:
 ```bash
-# Copy the helper script
-cp scripts/words-lookup.sh ~/.local/bin/
-chmod +x ~/.local/bin/words-lookup.sh
+# Ubuntu/Debian
+sudo apt install xclip wmctrl
 
-# Add keyboard shortcut in your desktop settings
-# Bind Ctrl+Shift+W → ~/.local/bin/words-lookup.sh
+# Arch Linux
+sudo pacman -S xclip wmctrl
+
+# Fedora
+sudo dnf install xclip wmctrl
 ```
-
-**How it works:** Select text → Press hotkey → See definition in notification
-
-**Requires:** `xclip`, `jq`, `notify-send`
 
 ## Project Structure
 
