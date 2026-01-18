@@ -1,6 +1,5 @@
 /**
  * SQLite Extension for Neutralinojs Words Dictionary
- * 
  * Connects to SQLite database and handles query events from the app.
  */
 
