@@ -17,6 +17,7 @@
   "nativeAllowList": [
     "app.*",
     "os.*",
+    "computer.*",
     "storage.*",
     "debug.log",
     "extensions.*",
@@ -29,12 +30,16 @@
   "modes": {
     "window": {
       "title": "Words Dictionary",
-      "width": 350,
-      "height": 450,
+      "width": 450,
+      "height": 700,
+      "minWidth": 500,
+      "minHeight": 800,
       "resizable": false,
       "maximize": false,
-      "icon": "/resources/assets/icons/icon.png",
-      "center": true
+      "icon": "resources/icon.png",
+      "enableInspector": true,
+      "center": true,
+      "exitProcessOnClose": false
     }
   },
   "cli": {
