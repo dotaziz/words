@@ -1,21 +1,32 @@
 # Logs
 *.log
+neutralinojs.log
 
-# Dependencies  
+# Dependencies
 node_modules/
 
 # Neutralino temp files
 .tmp/
+.storage/
 
 # Build output
 dist/
 release/
 
-# Storage (development)
-.storage/
+# Database (downloaded at runtime)
 database/*.db
 
+# Development scripts
+run-quiet.sh
+
+# IDE settings
+.vscode/
+.idea/
+.claude/
 
 # OS files
 .DS_Store
-release/
+Thumbs.db
+
+# Scaffolds (duplicates)
+_app_scaffolds/
